@@ -1,0 +1,85 @@
+Feature: Add to cart functionality
+
+  Background:                           # src/test/java/spree/features/CartPage.feature:3
+    Given Not a validated user          # LoginSteps.not_a_validated_user()
+    When User browse to the site        # LoginSteps.user_browse_to_the_site()
+    Then Spree home page should display # LoginSteps.spree_home_page_should_display()
+
+  Scenario: 1.User Add the product to shopping cart # src/test/java/spree/features/CartPage.feature:8
+    When User click the bags categories link        # CartPageSteps.user_click_the_bags_categories_link()
+    Then Bags categories page should display        # CartPageSteps.bags_categories_page_should_display()
+    When User select ruby on rails bag item         # CartPageSteps.user_select_ruby_on_rails_bag_item()
+    Then Ruby on rails bag page should display      # CartPageSteps.ruby_on_rails_bag_page_should_display()
+    When User Select the quantity                   # CartPageSteps.user_Select_the_quantity()
+    And Click the add to cart button                # CartPageSteps.click_the_add_to_cart_button()
+
+Feature: Spree login functionality
+         This explain how verious login functionality will work
+         Only valid user should be able to login
+
+  Background:                           # src/test/java/spree/features/login.feature:5
+    Given Not a validated user          # LoginSteps.not_a_validated_user()
+    When User browse to the site        # LoginSteps.user_browse_to_the_site()
+    Then Spree home page should display # LoginSteps.spree_home_page_should_display()
+
+  Scenario: 1.Valid user with valid password           # src/test/java/spree/features/login.feature:10
+    When User click login link                         # LoginSteps.user_click_login_link()
+    Then Browser display Login page                    # LoginSteps.browser_display_Login_page()
+    When User enter user email as "shiftqa1@gmail.com" # LoginSteps.user_enter_user_email_as(String)
+    And User enter password as "shiftedtech"           # LoginSteps.user_enter_password_as(String)
+    And User click login button                        # LoginSteps.user_click_login_button()
+    Then Home page should display                      # LoginSteps.home_page_should_display()
+    And Login success message display                  # LoginSteps.login_success_message_display()
+
+  Background:                           # src/test/java/spree/features/login.feature:5
+    Given Not a validated user          # LoginSteps.not_a_validated_user()
+    When User browse to the site        # LoginSteps.user_browse_to_the_site()
+    Then Spree home page should display # LoginSteps.spree_home_page_should_display()
+
+  Scenario: 2.Invalid user with Invalid password       # src/test/java/spree/features/login.feature:19
+    When User click login link                         # LoginSteps.user_click_login_link()
+    Then Browser display Login page                    # LoginSteps.browser_display_Login_page()
+    When User enter user email as "shiftqa1@gmail.com" # LoginSteps.user_enter_user_email_as(String)
+    And User enter password as "shiftedtechxxx"        # LoginSteps.user_enter_password_as(String)
+    And User click login button                        # LoginSteps.user_click_login_button()
+    Then Browser display Login page                    # LoginSteps.browser_display_Login_page()
+    And Login fail message display                     # LoginSteps.login_fail_message_display()
+
+  Scenario Outline: 3.Valid user with valid password Data Driven # src/test/java/spree/features/login.feature:28
+    When User click login link
+    Then Browser display Login page
+    When User enter user email as "<EmailAddress>"
+    And User enter password as "<Password>"
+    And User click login button
+    Then Home page should display
+    And Login success message display
+
+    Examples: 
+
+  Background:                           # src/test/java/spree/features/login.feature:5
+    Given Not a validated user          # LoginSteps.not_a_validated_user()
+    When User browse to the site        # LoginSteps.user_browse_to_the_site()
+    Then Spree home page should display # LoginSteps.spree_home_page_should_display()
+
+  Scenario Outline: 3.Valid user with valid password Data Driven # src/test/java/spree/features/login.feature:39
+    When User click login link                                   # LoginSteps.user_click_login_link()
+    Then Browser display Login page                              # LoginSteps.browser_display_Login_page()
+    When User enter user email as "shiftqa1@gmail.com"           # LoginSteps.user_enter_user_email_as(String)
+    And User enter password as "shiftedtech"                     # LoginSteps.user_enter_password_as(String)
+    And User click login button                                  # LoginSteps.user_click_login_button()
+    Then Home page should display                                # LoginSteps.home_page_should_display()
+    And Login success message display                            # LoginSteps.login_success_message_display()
+
+  Background:                           # src/test/java/spree/features/login.feature:5
+    Given Not a validated user          # LoginSteps.not_a_validated_user()
+    When User browse to the site        # LoginSteps.user_browse_to_the_site()
+    Then Spree home page should display # LoginSteps.spree_home_page_should_display()
+
+  Scenario Outline: 3.Valid user with valid password Data Driven # src/test/java/spree/features/login.feature:40
+    When User click login link                                   # LoginSteps.user_click_login_link()
+    Then Browser display Login page                              # LoginSteps.browser_display_Login_page()
+    When User enter user email as "tc001@gmail.com"              # LoginSteps.user_enter_user_email_as(String)
+    And User enter password as "000000"                          # LoginSteps.user_enter_password_as(String)
+    And User click login button                                  # LoginSteps.user_click_login_button()
+    Then Home page should display                                # LoginSteps.home_page_should_display()
+    And Login success message display                            # LoginSteps.login_success_message_display()

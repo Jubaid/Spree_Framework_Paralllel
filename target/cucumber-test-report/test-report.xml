@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="5" time="59.034951">
+    <testcase classname="Add to cart functionality" name="1.User Add the product to shopping cart" time="13.993844">
+        <system-out>
+            <![CDATA[Given Not a validated user..................................................passed
+When User browse to the site................................................passed
+Then Spree home page should display.........................................passed
+When User click the bags categories link....................................passed
+Then Bags categories page should display....................................passed
+When User select ruby on rails bag item.....................................passed
+Then Ruby on rails bag page should display..................................passed
+When User Select the quantity...............................................passed
+And Click the add to cart button............................................passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="Spree login functionality" name="1.Valid user with valid password" time="11.218893">
+        <system-out>
+            <![CDATA[Given Not a validated user..................................................passed
+When User browse to the site................................................passed
+Then Spree home page should display.........................................passed
+When User click login link..................................................passed
+Then Browser display Login page.............................................passed
+When User enter user email as "shiftqa1@gmail.com"..........................passed
+And User enter password as "shiftedtech"....................................passed
+And User click login button.................................................passed
+Then Home page should display...............................................passed
+And Login success message display...........................................passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="Spree login functionality" name="2.Invalid user with Invalid password" time="10.580503">
+        <system-out>
+            <![CDATA[Given Not a validated user..................................................passed
+When User browse to the site................................................passed
+Then Spree home page should display.........................................passed
+When User click login link..................................................passed
+Then Browser display Login page.............................................passed
+When User enter user email as "shiftqa1@gmail.com"..........................passed
+And User enter password as "shiftedtechxxx".................................passed
+And User click login button.................................................passed
+Then Browser display Login page.............................................passed
+And Login fail message display..............................................passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="Spree login functionality" name="3.Valid user with valid password Data Driven" time="12.526632">
+        <system-out>
+            <![CDATA[Given Not a validated user..................................................passed
+When User browse to the site................................................passed
+Then Spree home page should display.........................................passed
+When User click login link..................................................passed
+Then Browser display Login page.............................................passed
+When User enter user email as "shiftqa1@gmail.com"..........................passed
+And User enter password as "shiftedtech"....................................passed
+And User click login button.................................................passed
+Then Home page should display...............................................passed
+And Login success message display...........................................passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="Spree login functionality" name="3.Valid user with valid password Data Driven 2" time="10.715079">
+        <system-out>
+            <![CDATA[Given Not a validated user..................................................passed
+When User browse to the site................................................passed
+Then Spree home page should display.........................................passed
+When User click login link..................................................passed
+Then Browser display Login page.............................................passed
+When User enter user email as "tc001@gmail.com".............................passed
+And User enter password as "000000".........................................passed
+And User click login button.................................................passed
+Then Home page should display...............................................passed
+And Login success message display...........................................passed
+]]>
+        </system-out>
+    </testcase>
+</testsuite>
