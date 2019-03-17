@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public class StepsBase {
 
-    //protected WebDriver driver = DriverFactory.getInstance(System.getenv("chrome")).getDriver();
-	 public static WebDriver driver = null;
+    protected WebDriver driver = DriverFactory.getInstance(PropertyReader.getInstance().getEnvProperty("chrome")).getDriver();
+	 //public static WebDriver driver = null;
 }
 

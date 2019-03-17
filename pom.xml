@@ -28,12 +28,13 @@
             <version>6.14.3</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+		<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
 		<dependency>
 		    <groupId>io.github.bonigarcia</groupId>
 		    <artifactId>webdrivermanager</artifactId>
 		    <version>3.3.0</version>
 		</dependency>
+
 
         <dependency>
             <groupId>io.cucumber</groupId>
@@ -82,6 +83,12 @@
             <artifactId>cucumber-jvm-parallel-plugin</artifactId>
             <version>5.0.0</version>
         </dependency>
+        <dependency>
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-compiler-plugin</artifactId>
+  			<version>3.8.0</version>
+  			<type>maven-plugin</type>
+		</dependency>
     </dependencies>
 
     <build>
@@ -89,7 +96,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.6.0</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
@@ -110,11 +117,11 @@
                         <configuration>
                             <!-- Mandatory -->
                             <!-- comma separated list of package names to scan for glue code -->
-                            <glue>com.shiftedtech.spree.framework.steps</glue>
+                            <glue>spree.steps</glue>
                             <outputDirectory>${project.build.directory}/generated-test-sources/cucumber</outputDirectory>
                             <!-- The directory, which must be in the root of the runtime classpath,
                                 containing your feature files. -->
-                            <featuresDirectory>src/test/resources/features/</featuresDirectory>
+                            <featuresDirectory>src/test/java/spree/features/</featuresDirectory>
                             <!-- Directory where the cucumber report files shall be written -->
                             <cucumberOutputDir>target/cucumber-parallel</cucumberOutputDir>
                             <!-- comma separated list of output formats json,html,rerun.txt -->
@@ -147,22 +154,23 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <!-- This for parallel execution -->
+			
+            <!-- This for parallel execution 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.20.1</version>
                 <configuration>
                     <includes>
-                        <include>**/*IT.class</include>
+                        <include>**/BDD_Runner.class</include>
                     </includes>
                     <forkCount>4</forkCount>
                     <reuseForks>true</reuseForks>
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
             </plugin>
-
+			-->
+            
             <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -192,8 +200,8 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <sourceJsonReportDirectory>${project.build.directory}/cucumber-parallel</sourceJsonReportDirectory>
-                    <generatedHtmlReportDirectory>${project.build.directory}/cucumber-report</generatedHtmlReportDirectory>
+                    <sourceJsonReportDirectory>${project.build.directory}\cucumber-parallel</sourceJsonReportDirectory>
+                    <generatedHtmlReportDirectory>${project.build.directory}\cucumber-report</generatedHtmlReportDirectory>
                 </configuration>
             </plugin>
         </plugins>
