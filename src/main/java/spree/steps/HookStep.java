@@ -14,16 +14,15 @@ public class  HookStep extends StepsBase {
     @Before
     public void setUp() {
         ChromeDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();	
-        //driver = DriverFactory.getInstance(PropertyReader.getInstance().getEnvProperty("APP_URL")).getDriver();
+        //driver = new ChromeDriver();	
+        driver = DriverFactory.getInstance(PropertyReader.getInstance().getEnvProperty("CLOUD_BROWSER")).getDriver();
 		System.out.println(driver);
         //driver.get("http://spree.shiftedtech.com/");
 
     }
     @After
     public void tearDown() {
-        driver.close();
-        driver.quit();
+        DriverFactory.getInstance().removeDriver();
     }
 }
 
