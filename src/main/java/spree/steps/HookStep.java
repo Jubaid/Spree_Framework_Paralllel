@@ -6,6 +6,7 @@ import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import spree.utils.DriverFactory;
+import spree.utils.PropertyReader;
 import spree.utils.StepsBase;
 
 public class  HookStep extends StepsBase {
@@ -14,9 +15,9 @@ public class  HookStep extends StepsBase {
     public void setUp() {
         ChromeDriverManager.chromedriver().setup();
         driver = new ChromeDriver();	
-       // driver = DriverFactory.getInstance().getDriver();
-		//System.out.println(driver);
-        driver.get("http://spree.shiftedtech.com/");
+        //driver = DriverFactory.getInstance(PropertyReader.getInstance().getEnvProperty("APP_URL")).getDriver();
+		System.out.println(driver);
+        //driver.get("http://spree.shiftedtech.com/");
 
     }
     @After

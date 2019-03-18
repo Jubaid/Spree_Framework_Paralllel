@@ -19,8 +19,8 @@ public class DriverFactory {
 	
 	private static String LOCAL_GRID_URL = "http://10.10.20.70:4444/wd/hub";
 
-	public static final String USERNAME = "jayhoss1";
-	public static final String AUTOMATE_KEY = "tn5bsEFAeTv97CpQRyTA";
+	public static final String USERNAME = "alif14";
+	public static final String AUTOMATE_KEY = "sqhswyXvKthnoWb5xUa3";
 	public static final String CLOUD_URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
 
 	private DriverFactory() {
@@ -76,11 +76,11 @@ public class DriverFactory {
 			}
 			else if(browser.equalsIgnoreCase("chrome-cloud")) {
 				DesiredCapabilities caps = new DesiredCapabilities();
-				caps.setCapability("browser", "Chrome");
-				caps.setCapability("browser_version", "62.0");
-				caps.setCapability("os", "Windows");
-				caps.setCapability("os_version", "10");
-				caps.setCapability("resolution", "1920x1080");
+			    caps.setCapability("browser", "Chrome");
+			    caps.setCapability("browser_version", "73.0");
+			    caps.setCapability("os", "OS X");
+			    caps.setCapability("os_version", "Mojave");
+			    caps.setCapability("resolution", "1920x1080");
 
 				try {
 					WebDriver driver = new RemoteWebDriver(new URL(CLOUD_URL), caps);
