@@ -15,7 +15,7 @@ public class  HookStep extends StepsBase {
     public void setUp() {
         ChromeDriverManager.chromedriver().setup();
         //driver = new ChromeDriver();	
-        driver = DriverFactory.getInstance(PropertyReader.getInstance().getEnvProperty("CLOUD_BROWSER")).getDriver();
+        driver = DriverFactory.getInstance(PropertyReader.getInstance().getProperty("BROWSER")).getDriver();
 		System.out.println(driver);
         //driver.get("http://spree.shiftedtech.com/");
 

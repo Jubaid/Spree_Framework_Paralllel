@@ -89,6 +89,21 @@ public class DriverFactory {
 					e.printStackTrace();
 				}
 			}
+			else if(browser.equalsIgnoreCase("CLOUD-CH")) {
+				DesiredCapabilities caps = new DesiredCapabilities();
+			    caps.setCapability("browser", "Chrome");
+			    caps.setCapability("browser_version", "73.0");
+			    caps.setCapability("os", "OS X");
+			    caps.setCapability("os_version", "Mojave");
+			    caps.setCapability("resolution", "1920x1080");
+
+				try {
+					WebDriver driver = new RemoteWebDriver(new URL(CLOUD_URL), caps);
+					instance.driverCollection.set(driver);
+				} catch (MalformedURLException e) {
+					e.printStackTrace();
+				}
+			}
 			else {
 				ChromeDriverManager.chromedriver().setup();
 				WebDriver driver = new ChromeDriver();
